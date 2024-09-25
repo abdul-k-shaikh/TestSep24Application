@@ -10,6 +10,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class PlayGround1 {
 
@@ -129,6 +130,32 @@ public class PlayGround1 {
 		Integer SecondHighest = Arrays.stream(numbers).boxed().sorted(Comparator.reverseOrder()).skip(1).findFirst()
 				.get();
 		System.out.println("SecondHighest :" + SecondHighest);
+
+		// 3. find longest string from given array
+		String[] str3 = { "abdul", "rohan", "vivek", "vinayPandey" };
+		String longestString = Arrays.stream(str3).reduce((w1, w2) -> w1.length() > w2.length() ? w1 : w2).get();
+		System.out.println("longestString :" + longestString);
+
+		// 4. find all elements starts with 1
+		int[] numbers1 = { 5, 9, 11, 2, 8, 21, 1 };
+		List<String> startsWithONE = Arrays.stream(numbers1).boxed().map(x -> x + " ").filter(n -> n.startsWith("1"))
+				.collect(Collectors.toList());
+		System.out.println("startsWithONE" + startsWithONE);
+
+		// 4.1 given string array find all nums starting with 1
+		String[] stringNums = { "5", "9", "11", "2", "8", "21", "1" };
+		List<String> startsWithONE1 = Arrays.stream(stringNums).filter(x -> x.startsWith("1"))
+				.collect(Collectors.toList());
+		System.out.println("startsWithONE1 :" + startsWithONE1);
+
+		// 5. string.join() mtd example
+		List<String> asList = Arrays.asList("1", "2", "3", "4");
+		String joinEx = String.join(",", asList);
+		System.out.println("joinExample :" + joinEx);
+
+		// 5. skip and limit
+		IntStream.range(1, 10).skip(1).limit(4).forEach(System.out::println);
+		;
 
 	}
 
