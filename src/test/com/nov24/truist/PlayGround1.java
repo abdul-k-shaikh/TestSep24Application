@@ -3,6 +3,7 @@ package test.com.nov24.truist;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -30,10 +31,10 @@ public class PlayGround1 {
 		System.out.println("secondLargest: " + secondLargest);
 
 		// char count
-		String str = "abdul";
+		String str = "aabdul";
 		Map<String, Long> collect = Arrays.stream(str.split(""))
 				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
-		System.out.println("char count :" + collect);
+		System.out.println("char countTes :" + collect);
 
 		// find nums starting with 5
 		List<Integer> nums = Arrays.asList(1, 55, 50, 34, 55);
@@ -87,6 +88,47 @@ public class PlayGround1 {
 		Map<Character, Long> charCount2 = str1.chars().mapToObj(c -> (char) c)
 				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 		System.out.println("charCount2 :" + charCount2);
+
+		System.out.println("+++++++++++++++++17+11+2024++++++++++++++++");
+		// 1.count occurrence of each character in given string
+		String strSun = "javaisjava";
+		Map<Character, Long> collect3 = strSun.chars().mapToObj(c -> (char) c)
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+		System.out.println("charCount" + collect3);
+		// 1.1
+		Map<String, Long> collect4 = Arrays.stream(strSun.split(""))
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+		System.out.println("char count using split :" + collect4);
+
+		// 1.2 find all duplicates elements
+		List<String> collect5 = Arrays.stream(strSun.split(""))
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet().stream()
+				.filter(x -> x.getValue() >= 1).map(Map.Entry::getKey).collect(Collectors.toList());
+		System.out.println("duplicates values :" + collect5);
+
+		// 1.3 use above code to find unique elements
+		List<String> uniqueElements6 = Arrays.stream(strSun.split(""))
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet().stream()
+				.filter(x -> x.getValue() == 1).map(Map.Entry::getKey).collect(Collectors.toList());
+		System.out.println("uniqueElements6 :" + uniqueElements6);
+
+		// 1.4 first non repeated element from a string
+		String firstNonRepeatedElement = Arrays.stream(strSun.split(""))
+				.collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+				.entrySet().stream().filter(x -> x.getValue() == 1).findFirst().get().getKey();
+		System.out.println("firstNonRepeatedElement :" + firstNonRepeatedElement);
+
+		// 1.5 first repeated element from a string
+		String firstRepatedElement = Arrays.stream(strSun.split(""))
+				.collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+				.entrySet().stream().filter(x -> x.getValue() >= 1).findFirst().get().getKey();
+		System.out.println("firstRepatedElement: " + firstRepatedElement);
+
+		// 2.0 find second highest number from given array
+		int[] numbers = { 5, 9, 11, 2, 8, 21, 1 };
+		Integer SecondHighest = Arrays.stream(numbers).boxed().sorted(Comparator.reverseOrder()).skip(1).findFirst()
+				.get();
+		System.out.println("SecondHighest :" + SecondHighest);
 
 	}
 
