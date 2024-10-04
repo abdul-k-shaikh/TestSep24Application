@@ -6,7 +6,7 @@ import java.util.Map;
 public class CharCount {
 
 	public static void main(String[] args) {
-		String str = "aabdul";
+		String str = "aabbdul";
 		Map<Character, Integer> mp = new HashMap<Character, Integer>();
 		char c;
 		for (int i = 0; i < str.length(); i++) {
