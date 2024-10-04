@@ -20,6 +20,7 @@ public class SortHashMapByValue {
 				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new
 
 				));
+		sortedMap.forEach((key, value) -> System.out.println("key= " + key + ",Value=" + value));
 
 	}
 
