@@ -19,7 +19,7 @@ public class StreamExample {
 		Map<String, Long> countChars = Arrays.stream(input1.split(""))
 				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 		System.out.println("countChars" + countChars);
- 
+
 	}
 
 }
