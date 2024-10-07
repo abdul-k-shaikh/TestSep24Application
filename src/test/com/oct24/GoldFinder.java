@@ -16,7 +16,9 @@ public class GoldFinder {
 		System.out.println("Does the string contain 'gold'? " + containsGold1);
 
 		// using java 8 streams
-		boolean containsGold2 = Arrays.stream(s1.split(" ")).anyMatch("gold"::equals);
+		boolean containsGold2 = Arrays.stream(s1.split(" ")).anyMatch("gold"::equals); // It’s shorthand
+																						// for:.anyMatch(element ->
+																						// element.equals("gold"));
 
 		System.out.println("Does the string contain 'gold'? " + containsGold2);
 	}
