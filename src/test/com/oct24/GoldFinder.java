@@ -1,5 +1,6 @@
 package test.com.oct24;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class GoldFinder {
@@ -11,8 +12,13 @@ public class GoldFinder {
 		String s2 = "gold";
 
 		// using java inbuild method
-		boolean containsGold = s1.contains("gold");
-		System.out.println("Does the string contain 'gold'? " + containsGold);
+		boolean containsGold1 = s1.contains("gold");
+		System.out.println("Does the string contain 'gold'? " + containsGold1);
+
+		// using java 8 streams
+		boolean containsGold2 = Arrays.stream(s1.split(" ")).anyMatch("gold"::equals);
+
+		System.out.println("Does the string contain 'gold'? " + containsGold2);
 	}
 
 }
