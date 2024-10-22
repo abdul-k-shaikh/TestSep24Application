@@ -27,6 +27,8 @@ public class WordCounter {
 			}
 		}
 		System.out.println(count + 1);
+		
+		System.out.println("split :"+ input.split(" ").length);
 	}
 
 }
