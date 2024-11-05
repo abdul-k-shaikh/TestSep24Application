@@ -47,6 +47,30 @@ public class PlayGround1 {
 		System.out.println("removed duplicates: " + uniq);
 		System.out.println("unique elements: " + uniqueElements);
 
+		// Q. use java8 show me the length of each string and store them in map
+		List<String> list = Arrays.asList("apple", "orange", "kiwi", "banana");
+		Map<String, Integer> fruitLength = list.stream()
+				.collect(Collectors.toMap(fruit -> fruit, fruit -> fruit.length()));
+		System.out.println("fruitLength :" + fruitLength);
+		// output-> fruitLength :{orange=6, banana=6, apple=5, kiwi=4}
+
+		// Q. find the occurrences of each fruits
+		List<String> fruitList = Arrays.asList("apple", "orange", "kiwi", "banana", "apple");
+		Map<String, Long> fruitCount = fruitList.stream()
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+		System.out.println("fruitCount :" + fruitCount);
+		// ouput:fruitCount :{banana=1, orange=1, apple=2, kiwi=1}
+
+		// Q. count each chars
+		String s = "aaayyycccvvvbbaa";
+		Map<Character, Long> charCount = s.chars().mapToObj(c -> (char) c)
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+		System.out.println("charCount:" + charCount);
+		//output:charCount:{a=5, b=2, c=3, v=3, y=3}
+		
+		
+		
+
 	}
 
 }

@@ -59,6 +59,8 @@ public class Java8ArrayProblem {
 		Set<Integer> uni = new HashSet<Integer>();
 		List<Integer> collect = asList.stream().filter(n -> !uni.add(n)).collect(Collectors.toList());
 		System.out.println("collect Uniq:" + collect);
+		
+		
 	}
 
 }
