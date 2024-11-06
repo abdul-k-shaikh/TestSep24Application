@@ -97,6 +97,33 @@ public class StreamExamples {
 				.collect(Collectors.toSet());
 		System.out.println("duplicates elements using frequency :" + collect2);
 
+		// startsWith 1 using java8
+		List<String> numbers = Arrays.asList("11", "12", "32", "15");
+		List<String> numsStartsWithOne = numbers.stream().filter(n -> n.startsWith("1")).collect(Collectors.toList());
+		System.out.println("numsStartsWithOne:" + numsStartsWithOne);
+		// map
+		List<String> names = Arrays.asList("John", "Jane", "Jack", "Doe");
+		List<Integer> nameLengths = names.stream().map(String::length).collect(Collectors.toList());
+		System.out.println("mapEx: " + nameLengths);
+
+		// collect and set ex
+		List<String> names1 = Arrays.asList("John", "John", "Jane", "Jack", "Doe");
+		Set<String> nameSet = names.stream().collect(Collectors.toSet());
+		System.out.println("nameSet:" + nameSet);
+
+		// reduce example:
+		List<Integer> numbers1 = Arrays.asList(1, 2, 3, 4, 5);
+		int sum1 = numbers1.stream().reduce(0, Integer::sum);
+		System.out.println("sum using reduce(): " + sum1);
+
+		Optional<Integer> reduceSum = numbers1.stream().reduce((p, q) -> p + q);
+		System.out.println("reduceSum :" + reduceSum.get());
+
+		// limit ex
+		List<String> names11 = Arrays.asList("John", "Jane", "Jack", "Doe");
+		List<String> limitedNames = names11.stream().limit(3).collect(Collectors.toList());
+		System.out.println("limitedNames: " + limitedNames);
+
 	}
 
 }
