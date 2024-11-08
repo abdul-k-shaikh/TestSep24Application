@@ -123,6 +123,10 @@ public class StreamExamples {
 		List<String> names11 = Arrays.asList("John", "Jane", "Jack", "Doe");
 		List<String> limitedNames = names11.stream().limit(3).collect(Collectors.toList());
 		System.out.println("limitedNames: " + limitedNames);
+		
+		//remove duplicate string
+		
+		
 
 	}
 

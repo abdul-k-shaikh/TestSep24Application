@@ -18,3 +18,11 @@ public class AddDuplicate {
 	}
 
 }
+/*Enter a string
+*input: abd
+* output: aabbdd
+ * 
+ * 
+ * 
+ * 
+ * */
