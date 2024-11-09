@@ -9,7 +9,6 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class StreamExamples {
 
@@ -44,10 +43,14 @@ public class StreamExamples {
 		System.out.println("even nos :" + oddNos);
 
 		// Print Numbers Starts With Prefix 2
-		List<Integer> nums3 = Arrays.asList(11, 10, 20, 30, 15, 0);
-		List<Integer> startsWith2 = nums.stream().map(e -> String.valueOf(e)).filter(e -> e.startsWith("2"))
+		List<Integer> nums3 = Arrays.asList(11, 10, 20, 30, 15, 0, 55, 5, 51);
+		List<Integer> startsWith2 = nums3.stream().map(e -> String.valueOf(e)).filter(e -> e.startsWith("2"))
 				.map(Integer::valueOf).collect(Collectors.toList());
 		System.out.println("startsWith2 :" + startsWith2);
+
+		// Print Numbers Starts With 5
+		System.out.print("starts with 5:");
+		nums3.stream().filter(n -> n.toString().startsWith("5")).forEach(System.out::println);
 
 		// Duplicate numbers
 		List<Integer> nums4 = Arrays.asList(1, 2, 2, 3, 4, 5, 6, 6, 7, 8, 8, 10);
@@ -123,10 +126,8 @@ public class StreamExamples {
 		List<String> names11 = Arrays.asList("John", "Jane", "Jack", "Doe");
 		List<String> limitedNames = names11.stream().limit(3).collect(Collectors.toList());
 		System.out.println("limitedNames: " + limitedNames);
-		
-		//remove duplicate string
-		
-		
+
+		// remove duplicate string
 
 	}
 

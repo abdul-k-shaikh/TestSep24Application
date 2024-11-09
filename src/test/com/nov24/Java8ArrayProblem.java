@@ -1,7 +1,9 @@
 package test.com.nov24;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -51,6 +53,12 @@ public class Java8ArrayProblem {
 		System.out.println("************************************");
 		String s[] = { "apple", "kiwi", "banana", "pomegranate" };
 		fetchLongestString(s);
+
+		System.out.println("*******Removing Duplicates*******");
+		List<Integer> asList = Arrays.asList(1, 2, 3, 4, 56, 5, 5);
+		Set<Integer> uni = new HashSet<Integer>();
+		List<Integer> collect = asList.stream().filter(n -> !uni.add(n)).collect(Collectors.toList());
+		System.out.println("collect Uniq:" + collect);
 	}
 
 }
