@@ -15,12 +15,12 @@ public class TargetFinder {
 			int requiredNumber = targetNumber - arr[i];
 			if (processedNumbers.contains(requiredNumber)) {
 				System.out.println(requiredNumber);
-				System.out.println(arr[i]);
+				System.out.println(arr[i]); 
 				return true;
 			} else {
 				processedNumbers.add(arr[i]);
 			}
-		}
+		} 
 		return false;
 	}
 

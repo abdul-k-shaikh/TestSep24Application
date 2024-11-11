@@ -2,11 +2,13 @@ package test.com.nov24.truist;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.function.Function;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class PlayGround1 {
@@ -35,11 +37,16 @@ public class PlayGround1 {
 		System.out.println("char count :" + collect);
 
 		// find nums starting with 5
-		List<Integer> nums = Arrays.asList(1, 55, 50, 34);
+		List<Integer> nums = Arrays.asList(1, 55, 50, 34, 55);
 		nums.stream().filter(n -> n.toString().startsWith("5")).forEach(System.out::println);
 		System.out.println("Starts with 5");
-		
-		
+
+		System.err.println("Removing the duplicates");
+		Set<Integer> uniqueElements = new HashSet<Integer>();
+		List<Integer> uniq = nums.stream().filter(x -> !uniqueElements.add(x)).collect(Collectors.toList());
+		System.out.println("removed duplicates: " + uniq);
+		System.out.println("unique elements: " + uniqueElements);
+
 	}
 
 }
