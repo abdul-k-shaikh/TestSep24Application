@@ -66,11 +66,17 @@ public class PlayGround1 {
 		Map<Character, Long> charCount = s.chars().mapToObj(c -> (char) c)
 				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 		System.out.println("charCount:" + charCount);
-		//output:charCount:{a=5, b=2, c=3, v=3, y=3}
-		
-		
-		
+		// output:charCount:{a=5, b=2, c=3, v=3, y=3}
 
+		// Q pritn nums startes with one
+		List<String> numList = Arrays.asList("12", "22", "15", "20");
+		List<String> collect2 = numList.stream().filter(x -> x.startsWith("1")).collect(Collectors.toList());
+		System.out.println("nums startes with 1:" + collect2);
+
+		// Q remove duplicates
+		String[] stringArr1 = { "apple", "banana", "apple", "orange", "banana", "kiwi" };
+		List<String> uniqueData = Arrays.stream(stringArr1).distinct().collect(Collectors.toList());
+		System.out.println("removed duplicates:" + uniqueData);
 	}
 
 }
