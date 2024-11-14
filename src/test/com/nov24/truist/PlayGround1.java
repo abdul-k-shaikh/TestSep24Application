@@ -1,5 +1,6 @@
 package test.com.nov24.truist;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -77,6 +78,11 @@ public class PlayGround1 {
 		String[] stringArr1 = { "apple", "banana", "apple", "orange", "banana", "kiwi" };
 		List<String> uniqueData = Arrays.stream(stringArr1).distinct().collect(Collectors.toList());
 		System.out.println("removed duplicates:" + uniqueData);
+
+		// given list of fruit store them and its length
+		List<String> fl = Arrays.asList("apple", "kiwi", "banana", "ginger");
+		Map<String, Integer> fruitMap = fl.stream().collect(Collectors.toMap(fruit -> fruit, fruit -> fruit.length()));
+		System.out.println("fruitMap :" + fruitMap);
 	}
 
 }
