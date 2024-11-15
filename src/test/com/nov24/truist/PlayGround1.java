@@ -1,6 +1,5 @@
 package test.com.nov24.truist;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -9,7 +8,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.function.Function;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class PlayGround1 {
@@ -83,6 +81,13 @@ public class PlayGround1 {
 		List<String> fl = Arrays.asList("apple", "kiwi", "banana", "ginger");
 		Map<String, Integer> fruitMap = fl.stream().collect(Collectors.toMap(fruit -> fruit, fruit -> fruit.length()));
 		System.out.println("fruitMap :" + fruitMap);
+
+		// char count
+		String str1 = "aaayyycccvvvbbaa";
+		Map<Character, Long> charCount2 = str1.chars().mapToObj(c -> (char) c)
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+		System.out.println("charCount2 :" + charCount2);
+
 	}
 
 }
