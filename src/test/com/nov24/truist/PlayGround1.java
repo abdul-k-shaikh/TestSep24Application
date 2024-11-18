@@ -113,7 +113,7 @@ public class PlayGround1 {
 				.filter(x -> x.getValue() == 1).map(Map.Entry::getKey).collect(Collectors.toList());
 		System.out.println("uniqueElements6 :" + uniqueElements6);
 
-		// 1.4 first non repeated element from a string
+		// 1.4 first non repeated element from a string, maitained insertion using LinkedHashmap
 		String firstNonRepeatedElement = Arrays.stream(strSun.split(""))
 				.collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
 				.entrySet().stream().filter(x -> x.getValue() == 1).findFirst().get().getKey();
