@@ -20,10 +20,13 @@ public class NthHighestSalMapOperation {
 		map1.put("daniel", 1700);
 		map1.put("james", 1400);
 
-		Entry<String, Integer> entry = map1.entrySet().stream()
-				.sorted(Collections.reverseOrder(Map.Entry.comparingByValue())).collect(Collectors.toList()).get(1);
-		System.out.println(entry);
-
+		Entry<String, Integer> nthHighestSalary = getNthHighestSalary(1, map1);
+		System.out.println("nthHighestSalary :" + nthHighestSalary);
 	}
 
+	public static Map.Entry<String, Integer> getNthHighestSalary(int num, Map<String, Integer> map) {
+		return map.entrySet().stream().sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
+				.collect(Collectors.toList()).get(num-1);
+
+	}
 }
