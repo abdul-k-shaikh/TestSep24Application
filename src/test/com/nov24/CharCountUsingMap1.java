@@ -16,5 +16,4 @@ public class CharCountUsingMap1 {
 			System.out.println(e.getKey() + ":" + e.getValue());
 		}
 	}
-
 }

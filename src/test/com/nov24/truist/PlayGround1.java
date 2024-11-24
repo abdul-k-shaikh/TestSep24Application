@@ -162,6 +162,11 @@ public class PlayGround1 {
 		List<String> collect6 = list111.stream().distinct().collect(Collectors.toList());
 		System.out.println("collect6: " + collect6);
 
+		List<String> list12 = Arrays.asList("apple", "orange", "kiwi", "banana");
+		Map<String, Integer> collect7 = list12.stream()
+				.collect(Collectors.toMap(fruit -> fruit, fruit -> fruit.length()));
+		System.out.println(collect7);
+
 	}
 
 }
