@@ -12,6 +12,8 @@ public class CharTest {
 		Map<String, Long> charCount = Arrays.stream(str.split(""))
 				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 		System.out.println("charCount :" + charCount);
+		
+		
 	}
 
 }
